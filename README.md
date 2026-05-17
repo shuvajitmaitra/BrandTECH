@@ -1,15 +1,13 @@
-# BhcJobs
+# BrandTECH Store
 
-A React Native mobile application built with Expo.
+A React Native e-commerce mobile application built with Expo. Browse products fetched from the Fake Store API, view product details, manage a favorites/wishlist, and toggle between light and dark themes — all with persisted state across sessions.
 
 ## Prerequisites
-
-Make sure the following tools are installed before cloning the project:
 
 | Tool | Version | Install |
 |------|---------|---------|
 | Node.js | >= 20.x | [nodejs.org](https://nodejs.org) or `nvm install 20` |
-| Expo CLI | latest | `pnpm add -g expo-cli` |
+| pnpm | >= 9.x | `npm install -g pnpm` |
 | Git | any | [git-scm.com](https://git-scm.com) |
 
 ---
@@ -17,66 +15,131 @@ Make sure the following tools are installed before cloning the project:
 ## Clone & Install
 
 ```bash
-git clone https://github.com/shuvajitmaitra/BhcJobs.git
-cd BhcJobs
+git clone <repo-url>
+cd BrandTECH
 pnpm install
 ```
+
 ---
 
 ## Run the App
 
-### Start the Expo dev server
-
 ```bash
+# Start the Expo dev server
 pnpm start
 ```
 
 Then press:
 - `i` — open iOS Simulator
 - `a` — open Android emulator / device
-- `w` — open in browser (limited native feature support)
-
-### Run directly on a platform
+- `w` — open in browser
 
 ```bash
-# iOS
+# Run directly on a platform
 pnpm ios
-
-# Android
 pnpm android
 ```
+
+---
+
+## Build
+
+```bash
+# Android APK (release)
+pnpm apk
+
+# Android App Bundle (release)
+pnpm abb
+
+# iOS — open in Xcode
+pnpm xcode
+
+# Install CocoaPods
+pnpm pod
+
+# Clean Android build
+pnpm clean
+```
+
+---
+
+## Lint & Format
+
+```bash
+pnpm lint       # ESLint + Prettier check
+pnpm format     # ESLint --fix + Prettier --write
+```
+
+---
 
 ## Project Structure
 
 ```
-BhcJobs/
+BrandTECH/
 ├── src/
-│   ├── components/     # Shared UI components
-│   ├── helpers/        # Utility helpers
-│   ├── hooks/          # Custom React hooks
-│   ├── navigation/     # React Navigation setup
-│   ├── redux/          # Redux Toolkit store & slices
-│   ├── screens/        # Screen components
-│   ├── services/       # API service layer (Axios)
-│   ├── theme/          # Colors, typography, spacing
-│   ├── types/          # TypeScript type definitions
-│   └── utils/          # General utilities
-├── assets/             # Images, fonts, icons
-├── App.tsx             # App entry point
-├── app.json            # Expo configuration
-├── env.ts              # API environment config
-├── tailwind.config.js  # NativeWind / Tailwind config
-└── tsconfig.json       # TypeScript config
+│   ├── components/
+│   │   ├── common/         # GlobalHeader, GlobalStatusBar, Logo
+│   │   ├── home/           # Banner
+│   │   └── product/        # ProductCard, ProductRating, FavoriteButton, SearchBar, EmptyState
+│   ├── hooks/
+│   │   ├── useProducts.ts  # Fetch & cache products
+│   │   └── useThemeColors.ts
+│   ├── navigation/
+│   │   ├── Navigation.tsx  # Root navigator wrapper
+│   │   └── RootStack.tsx   # Stack screens (Home, ProductDetail, Favorites)
+│   ├── redux/
+│   │   ├── slices/
+│   │   │   ├── productSlice.ts  # Product list + favorites state
+│   │   │   └── themeSlice.ts    # Light/dark theme toggle
+│   │   ├── store.ts        # Redux store with redux-persist
+│   │   └── hooks.ts        # Typed useAppSelector / useAppDispatch
+│   ├── screens/
+│   │   └── product/
+│   │       ├── HomeScreen.tsx
+│   │       ├── ProductDetailScreen.tsx
+│   │       └── FavoritesScreen.tsx
+│   ├── services/
+│   │   └── productService.ts   # Axios calls to Fake Store API
+│   ├── theme/
+│   │   └── colors.ts
+│   └── types/
+│       └── productTypes.ts
+├── assets/                 # Icons, splash, logo
+├── App.tsx                 # Entry point — Provider, PersistGate, ThemedApp
+├── app.json                # Expo configuration
+├── global.css              # NativeWind global styles
+├── tailwind.config.js      # NativeWind / Tailwind config
+└── tsconfig.json           # TypeScript config
 ```
 
+---
+
+## Screens
+
+| Screen | Description |
+|--------|-------------|
+| **Home** | Product grid with search bar and promotional banner |
+| **Product Detail** | Full product info, rating, and favorite toggle |
+| **Favorites** | Products saved to the favorites list |
+
+---
 
 ## Tech Stack
 
-- **Framework:** React Native + Expo 54
-- **Language:** TypeScript
-- **Styling:** NativeWind (Tailwind CSS for React Native)
-- **State Management:** Redux Toolkit + Redux Persist
-- **Navigation:** React Navigation v7
-- **Forms:** React Hook Form + Zod
-- **HTTP Client:** Axios
-- **Package Manager:** pnpm
+| Category | Library |
+|----------|---------|
+| Framework | React Native + Expo 54 |
+| Language | TypeScript 5.9 |
+| Styling | NativeWind (Tailwind CSS for React Native) |
+| Icons | Lucide React Native |
+| State Management | Redux Toolkit + Redux Persist |
+| Navigation | React Navigation v7 (Native Stack) |
+| HTTP Client | Axios |
+| Storage | AsyncStorage |
+| Package Manager | pnpm 9 |
+
+---
+
+## API
+
+Products are fetched from the public [Fake Store API](https://fakestoreapi.com/products). No API key required.
