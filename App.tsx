@@ -10,9 +10,9 @@ import Toast from 'react-native-toast-message';
 import { toastConfig } from './src/components/common/ToastConfig';
 
 const ThemedApp = () => {
-  const theme = useAppSelector((state) => state.auth.theme);
+  const theme = useAppSelector(state => state.theme.theme);
   return (
-    <View className={`flex-1${theme === 'dark' ? ' dark' : ''}`}>
+    <View className={`flex-1 ${theme === 'dark' ? ' dark' : ''}`}>
       <Navigation />
       <Toast config={toastConfig} />
     </View>
@@ -22,7 +22,7 @@ const ThemedApp = () => {
 export default function App() {
   return (
     <SafeAreaProvider>
-      <Provider  store={store}>
+      <Provider store={store}>
         <PersistGate loading={null} persistor={persistor}>
           <ThemedApp />
         </PersistGate>

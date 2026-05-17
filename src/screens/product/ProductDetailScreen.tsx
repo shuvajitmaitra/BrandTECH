@@ -22,8 +22,9 @@ const ProductDetailScreen = ({ route }: ProductDetailScreenProps) => {
   return (
     <ScrollView
       className="flex-1 bg-background"
-      contentContainerStyle={{ padding: 20, paddingBottom: 40 }}
-      showsVerticalScrollIndicator={false}>
+      showsVerticalScrollIndicator={false}
+      contentContainerClassName="p-3 pt-0"
+    >
       <View className="absolute right-[-70] top-12 h-60 w-60 rounded-full bg-primary/10" />
       <View className="overflow-hidden rounded-[32px] border border-border bg-accent p-6">
         <View className="absolute -left-8 top-10 h-28 w-28 rounded-full bg-white/5" />
@@ -89,10 +90,10 @@ const ProductDetailScreen = ({ route }: ProductDetailScreenProps) => {
           <Text className="text-xs font-semibold uppercase tracking-[2px] text-[#d8b6ff]">
             Category
           </Text>
-          <Text className="mt-2 text-xl font-bold text-foreground">
+          <Text className="mt-2 text-xl font-bold text-white">
             {product.category}
           </Text>
-          <Text className="mt-2 text-sm leading-6 text-secondary-foreground">
+          <Text className="mt-2 text-sm leading-6 text-gray-300">
             Strategy-led styling adapted from the BrandTECH web direction.
           </Text>
         </View>
@@ -103,7 +104,8 @@ const ProductDetailScreen = ({ route }: ProductDetailScreenProps) => {
             isFavorite
               ? 'border-destructive bg-destructive'
               : 'border-primary bg-primary'
-          }`}>
+          }`}
+        >
           <Text className="text-center text-base font-semibold text-white">
             {isFavorite ? 'Remove from favorites' : 'Save to favorites'}
           </Text>

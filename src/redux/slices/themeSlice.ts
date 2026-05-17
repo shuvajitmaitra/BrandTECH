@@ -1,15 +1,15 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-type AuthState = {
+type ThemeState = {
   theme: 'light' | 'dark';
 };
 
-const initialState: AuthState = {
+const initialState: ThemeState = {
   theme: 'dark',
 };
 
-const authSlice = createSlice({
-  name: 'auth',
+const themeSlice = createSlice({
+  name: 'theme',
   initialState,
   reducers: {
     toggleLocalTheme: state => {
@@ -18,6 +18,6 @@ const authSlice = createSlice({
   },
 });
 
-export const { toggleLocalTheme } = authSlice.actions;
+export const { toggleLocalTheme } = themeSlice.actions;
 
-export default authSlice.reducer;
+export default themeSlice.reducer;

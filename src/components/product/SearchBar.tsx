@@ -1,6 +1,6 @@
 import React from 'react';
 import { Text, TextInput, View } from 'react-native';
-import { Search, SlidersHorizontal } from 'lucide-react-native';
+import { Search, Settings, SlidersHorizontal } from 'lucide-react-native';
 import { useThemeColors } from '../../hooks/useThemeColors';
 
 type SearchBarProps = {
@@ -12,25 +12,26 @@ const SearchBar = ({ value, onChangeText }: SearchBarProps) => {
   const { colors } = useThemeColors();
 
   return (
-    <View className="mb-6 rounded-[28px] border border-border bg-card px-4 py-4">
-      <View className="mb-3 flex-row items-center justify-between">
+    <View className="mb-3 rounded-3xl border border-border bg-card px-4 py-4">
+      <View className="mb-2 flex-row items-center justify-between">
         <Text className="text-xs font-semibold uppercase tracking-[2px] text-primary">
           Product Search
         </Text>
-        <View className="rounded-full border border-border bg-accent px-3 py-1.5">
+        <View className="rounded-full border border-border bg-accent h-8 w-8 justify-center items-center">
           <SlidersHorizontal size={14} color={colors.primary} />
         </View>
       </View>
-      <View className="flex-row items-center rounded-full border border-border bg-background px-4 py-3">
+      <View className="flex-row items-center px-3 gap-3 rounded-full border border-border bg-background">
         <Search size={18} color={colors.primary} />
         <TextInput
           value={value}
           onChangeText={onChangeText}
           placeholder="Search innovative products"
-          placeholderTextColor={colors.mutedForeground}
-          className="ml-3 flex-1 text-base text-foreground"
+          className="text-foreground flex-1 h-12"
           autoCapitalize="none"
           autoCorrect={false}
+          placeholderTextColor={colors.mutedForeground}
+          selectionColor={colors.primary}
         />
       </View>
     </View>

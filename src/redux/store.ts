@@ -10,25 +10,25 @@ import {
   REGISTER,
   REHYDRATE,
 } from 'redux-persist';
-import authReducer from './slices/authSlice';
 import productReducer from './slices/productSlice';
+import themeReducer from './slices/themeSlice';
 
 const rootReducer = combineReducers({
-  auth: authReducer,
+  theme: themeReducer,
   product: productReducer,
 });
 
 const persistConfig = {
   key: 'root',
   storage: AsyncStorage,
-  whitelist: ['auth', 'product'],
+  whitelist: ['theme', 'product'],
 };
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
 
 export const store = configureStore({
   reducer: persistedReducer,
-  middleware: (getDefaultMiddleware) =>
+  middleware: getDefaultMiddleware =>
     getDefaultMiddleware({
       serializableCheck: {
         ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],

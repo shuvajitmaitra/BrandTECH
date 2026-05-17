@@ -3,8 +3,7 @@ import { StatusBar } from 'expo-status-bar';
 import { useAppSelector } from '../../redux/hooks';
 
 const GlobalStatusBar = () => {
-  const theme = useAppSelector(state => state.auth.theme);
-  console.log('theme', JSON.stringify(theme, null, 2));
+  const theme = useAppSelector(state => state.theme.theme);
   return <StatusBar style={theme === 'dark' ? 'light' : 'dark'} />;
 };
 

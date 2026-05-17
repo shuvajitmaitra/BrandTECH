@@ -28,31 +28,31 @@ const Banner = ({
           businesses trust
         </Text>
       </View>
-      <Text className="mb-6 mt-2 max-w-[95%] text-base leading-7 text-muted-foreground">
+      <Text className="mb-3 mt-2 max-w-[95%] text-base leading-7 text-muted-foreground">
         We help businesses thrive with innovative strategies, smart technology,
         and data-driven insights. From planning to execution.
       </Text>
       <SearchBar value={searchText} onChangeText={onChangeSearchText} />
       <View className="flex-row gap-3">
-        <View className="flex-1 rounded-[28px] border border-[#6940a7] bg-[#31184e] px-4 py-4">
+        <View className="flex-1 rounded-3xl border border-[#6940a7] bg-[#31184e] px-4 py-4">
           <Text className="text-xs font-semibold uppercase tracking-[2px] text-[#d8b6ff]">
             Live Catalog
           </Text>
-          <Text className="mt-2 text-3xl font-bold text-foreground">
+          <Text className="mt-2 text-3xl font-bold text-white">
             {filteredCount}
           </Text>
-          <Text className="mt-1 text-sm text-secondary-foreground">
+          <Text className="mt-1 text-sm text-muted-foreground">
             product{filteredCount === 1 ? '' : 's'} shown
           </Text>
         </View>
-        <View className="flex-1 rounded-[28px] border border-[#336f4c] bg-[#1f4a33] px-4 py-4">
+        <View className="flex-1 rounded-3xl border border-[#336f4c] bg-[#1f4a33] px-4 py-4">
           <View className="flex-row items-center justify-between">
             <Text className="text-xs font-semibold uppercase tracking-[2px] text-[#b4f0c7]">
               Saved
             </Text>
             <Sparkles size={15} color="#7ef0a1" />
           </View>
-          <Text className="mt-2 text-3xl font-bold text-foreground">
+          <Text className="mt-2 text-3xl font-bold text-white">
             {favorites.length}
           </Text>
           <Text className="mt-1 text-sm text-[#c5efd2]">
