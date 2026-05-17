@@ -3,7 +3,6 @@ import { ActivityIndicator, FlatList, Text, View } from 'react-native';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import ProductCard from '../../components/product/ProductCard';
 import EmptyState from '../../components/product/EmptyState';
-import { RootStackParamList } from '../../navigation/types';
 import { useAppDispatch, useAppSelector } from '../../redux/hooks';
 import {
   filterProducts,
@@ -11,6 +10,7 @@ import {
 } from '../../redux/slices/productSlice';
 import Banner from '@/components/home/Banner';
 import useProducts from '@/hooks/useProducts';
+import { RootStackParamList } from '@/navigation/RootStack';
 
 type HomeScreenProps = NativeStackScreenProps<RootStackParamList, 'Home'>;
 

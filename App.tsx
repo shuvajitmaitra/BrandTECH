@@ -6,15 +6,12 @@ import { persistor, store } from './src/redux/store';
 import { useAppSelector } from './src/redux/hooks';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import Navigation from './src/navigation/Navigation';
-import Toast from 'react-native-toast-message';
-import { toastConfig } from './src/components/common/ToastConfig';
 
 const ThemedApp = () => {
   const theme = useAppSelector(state => state.theme.theme);
   return (
     <View className={`flex-1 ${theme === 'dark' ? ' dark' : ''}`}>
       <Navigation />
-      <Toast config={toastConfig} />
     </View>
   );
 };

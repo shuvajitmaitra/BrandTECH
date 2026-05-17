@@ -3,11 +3,14 @@ import { FlatList, Text, View } from 'react-native';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import ProductCard from '../../components/product/ProductCard';
 import EmptyState from '../../components/product/EmptyState';
-import { RootStackParamList } from '../../navigation/types';
 import { useAppDispatch, useAppSelector } from '../../redux/hooks';
 import { toggleFavorite } from '../../redux/slices/productSlice';
+import { RootStackParamList } from '@/navigation/RootStack';
 
-type FavoritesScreenProps = NativeStackScreenProps<RootStackParamList, 'Favorites'>;
+type FavoritesScreenProps = NativeStackScreenProps<
+  RootStackParamList,
+  'Favorites'
+>;
 
 const FavoritesScreen = ({ navigation }: FavoritesScreenProps) => {
   const dispatch = useAppDispatch();
@@ -33,7 +36,8 @@ const FavoritesScreen = ({ navigation }: FavoritesScreenProps) => {
                 Saved favorites
               </Text>
               <Text className="mt-3 text-base leading-7 text-muted-foreground">
-                Your selected products stay stored locally in a curated BrandTECH-style collection.
+                Your selected products stay stored locally in a curated
+                BrandTECH-style collection.
               </Text>
             </View>
           ) : null
@@ -51,7 +55,9 @@ const FavoritesScreen = ({ navigation }: FavoritesScreenProps) => {
             product={item}
             isFavorite
             className={item.id % 2 === 1 ? 'mr-1.5' : 'ml-1.5'}
-            onPress={() => navigation.navigate('ProductDetail', { product: item })}
+            onPress={() =>
+              navigation.navigate('ProductDetail', { product: item })
+            }
             onToggleFavorite={() => dispatch(toggleFavorite(item))}
           />
         )}

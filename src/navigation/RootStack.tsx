@@ -3,8 +3,15 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import HomeScreen from '../screens/product/HomeScreen';
 import ProductDetailScreen from '../screens/product/ProductDetailScreen';
 import FavoritesScreen from '../screens/product/FavoritesScreen';
-import { RootStackParamList } from './types';
+
 import GlobalHeader from '@/components/common/GlobalHeader';
+import { Product } from '@/types/productTypes';
+
+export type RootStackParamList = {
+  Home: undefined;
+  ProductDetail: { product: Product };
+  Favorites: undefined;
+};
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
 

@@ -2,11 +2,11 @@ import React from 'react';
 import { Image, Pressable, ScrollView, Text, View } from 'react-native';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { ShieldCheck } from 'lucide-react-native';
-import { RootStackParamList } from '../../navigation/types';
 import FavoriteButton from '../../components/product/FavoriteButton';
 import ProductRating from '../../components/product/ProductRating';
 import { useAppDispatch, useAppSelector } from '../../redux/hooks';
 import { toggleFavorite } from '../../redux/slices/productSlice';
+import { RootStackParamList } from '@/navigation/RootStack';
 
 type ProductDetailScreenProps = NativeStackScreenProps<
   RootStackParamList,
