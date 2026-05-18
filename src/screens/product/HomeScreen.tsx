@@ -1,11 +1,5 @@
 import React from 'react';
-import {
-  ActivityIndicator,
-  FlatList,
-  RefreshControl,
-  Text,
-  View,
-} from 'react-native';
+import { ActivityIndicator, FlatList, Text, View } from 'react-native';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import ProductCard from '../../components/product/ProductCard';
 import EmptyState from '../../components/product/EmptyState';
@@ -79,13 +73,6 @@ const HomeScreen = ({ navigation }: HomeScreenProps) => {
           <EmptyState
             title="No matches found"
             description="Try a different product name to widen the results."
-          />
-        }
-        refreshControl={
-          <RefreshControl
-            colors={['#ffffff']}
-            refreshing={true}
-            onRefresh={loadProducts}
           />
         }
         renderItem={({ item }) => {

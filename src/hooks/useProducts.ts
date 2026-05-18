@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import { getProducts } from '@/services/productService';
 import { useAppDispatch } from '@/redux/hooks';
 import {
@@ -31,6 +31,7 @@ const useProducts = () => {
 
   useEffect(() => {
     loadProducts();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return {

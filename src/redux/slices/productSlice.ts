@@ -1,6 +1,5 @@
-import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { Product } from '../../types/productTypes';
-import { getProducts } from '../../services/productService';
 
 type ProductState = {
   products: Product[];
@@ -23,8 +22,6 @@ const getFilteredProducts = (products: Product[], searchText: string) => {
     product.title.toLowerCase().includes(normalizedSearch),
   );
 };
-
-
 
 const initialState: ProductState = {
   products: [],
