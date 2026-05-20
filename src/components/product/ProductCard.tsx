@@ -1,6 +1,6 @@
 import React from 'react';
 import { Image, Pressable, Text, View } from 'react-native';
-import { ArrowUpRight, PlusIcon } from 'lucide-react-native';
+import { PlusIcon } from 'lucide-react-native';
 import { Product } from '../../types/productTypes';
 import FavoriteButton from './FavoriteButton';
 import ProductRating from './ProductRating';

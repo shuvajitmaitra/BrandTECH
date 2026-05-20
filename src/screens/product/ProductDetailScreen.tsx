@@ -28,7 +28,7 @@ const ProductDetailScreen = ({ route }: ProductDetailScreenProps) => {
       <View className="absolute right-[-70] top-12 h-60 w-60 rounded-full bg-primary/10" />
       <View className="overflow-hidden rounded-[32px] border border-border bg-accent p-6">
         <View className="absolute -left-8 top-10 h-28 w-28 rounded-full bg-white/5" />
-        <View className="mb-4 self-start rounded-full border border-white/15 bg-black/20 px-4 py-2">
+        <View className="mb-4 self-start rounded-full border border-[#d8b6ff] bg-primary/30 px-4 py-2">
           <Text className="text-xs font-semibold uppercase tracking-[2px] text-[#d8b6ff]">
             Product Overview
           </Text>

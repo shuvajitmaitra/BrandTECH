@@ -60,7 +60,7 @@ const HomeScreen = ({ navigation }: HomeScreenProps) => {
           gap: 10,
           paddingBottom: 32,
         }}
-        columnWrapperStyle={{ gap: 0 }}
+        columnWrapperStyle={{ gap: 10 }}
         showsVerticalScrollIndicator={false}
         ListHeaderComponent={
           <Banner
@@ -84,7 +84,6 @@ const HomeScreen = ({ navigation }: HomeScreenProps) => {
             <ProductCard
               product={item}
               isFavorite={isFavorite}
-              className={item.id % 2 === 1 ? 'mr-1.5' : 'ml-1.5'}
               onPress={() =>
                 navigation.navigate('ProductDetail', { product: item })
               }

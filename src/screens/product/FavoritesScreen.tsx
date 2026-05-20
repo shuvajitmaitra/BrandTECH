@@ -23,8 +23,12 @@ const FavoritesScreen = ({ navigation }: FavoritesScreenProps) => {
         data={favorites}
         numColumns={2}
         keyExtractor={item => item.id.toString()}
-        contentContainerStyle={{ padding: 20, paddingBottom: 32, flexGrow: 1 }}
-        columnWrapperStyle={favorites.length > 1 ? { gap: 12 } : undefined}
+        contentContainerStyle={{
+          paddingHorizontal: 16,
+          gap: 10,
+          paddingBottom: 32,
+        }}
+        columnWrapperStyle={{ gap: 10 }}
         showsVerticalScrollIndicator={false}
         ListHeaderComponent={
           favorites.length > 0 ? (
@@ -54,7 +58,6 @@ const FavoritesScreen = ({ navigation }: FavoritesScreenProps) => {
           <ProductCard
             product={item}
             isFavorite
-            className={item.id % 2 === 1 ? 'mr-1.5' : 'ml-1.5'}
             onPress={() =>
               navigation.navigate('ProductDetail', { product: item })
             }
